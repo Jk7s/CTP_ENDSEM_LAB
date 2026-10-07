@@ -57,17 +57,6 @@ for i in range(1, len(weights) + 1):
             dp[i][w] = dp[i - 1][w]
 
 print("Maximum usefulness:", dp[len(weights)][W])
-
-w = W
-items = []
-
-for i in range(len(weights), 0, -1):
-    if dp[i][w] != dp[i - 1][w]:
-        items.append(i)
-        w -= weights[i - 1]
-
-print("Selected items:", items[::-1])
-
 print("DP Table:")
 for row in dp:
     print(row)
@@ -82,7 +71,6 @@ print("Space: O(nW)")
 
 ```text
 Maximum usefulness: 11
-Selected items: [2, 4]
 
 DP Table:
 [0, 0, 0, 0, 0, 0]
